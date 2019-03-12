@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
-import Emaily from '../img/emaily.png';
+import Emailyo from '../img/emailyo.png';
 
 class Navbar extends Component {
   componentDidMount() {
@@ -57,14 +57,14 @@ class Navbar extends Component {
         <div className="navbar-brand">
           <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-item">
             <img
-              src={Emaily}
-              alt="Emaily"
+              src={Emailyo}
+              alt="Emailyo"
               width="28"
               height="28"
               style={{ marginRight: 5 }}
             />
             <span>
-              <strong>Emaily</strong>
+              <strong>Emailyo</strong>
             </span>
           </Link>
 
