@@ -1,3 +1,3 @@
-# Emaily
+# Emaile
 
-You can use **Emaily** to get feedbacks!
+You can use **Emaile** to get feedbacks!
