@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
+import * as actions from '../actions';
 import Emaile from '../img/emaile.png';
 
 class Navbar extends Component {
@@ -29,7 +30,7 @@ class Navbar extends Component {
         return;
       case false:
         return (
-          <a href="/auth/google" className="button is-primary">
+          <a href="/auth/google" className="button">
             <strong>Login with Google</strong>
           </a>
         );
@@ -38,13 +39,24 @@ class Navbar extends Component {
         return [
           <Payments key="1" />,
           <div
-            key="3"
-            className="button is-info is-disabled"
+            key="2"
+            className="button"
+            onClick={this.props.addFree}
             style={{ marginLeft: '10px' }}
           >
+            Add FREE!
+          </div>,
+          <div key="3" className="button">
             Credits: {this.props.auth.credits}
           </div>,
-          <a key="2" href="/api/logout" className="button">
+          <div
+            key="4"
+            className="button is-danger"
+            onClick={this.props.resetAmount}
+          >
+            Reset
+          </div>,
+          <a key="5" href="/api/logout" className="button">
             Logout
           </a>
         ];
@@ -97,4 +109,7 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  mapStateToProps,
+  actions
+)(Navbar);
