@@ -24,42 +24,56 @@ class Navbar extends Component {
     }
   }
 
-  renderContent() {
+  renderButton() {
     switch (this.props.auth) {
       case null:
         return;
       case false:
         return (
-          <a href="/auth/google" className="button">
+          <a href="/auth/google" className="button is-primary">
             <strong>Login with Google</strong>
           </a>
         );
-
       default:
-        return [
-          <Payments key="1" />,
-          <div
-            key="2"
-            className="button"
-            onClick={this.props.addFree}
-            style={{ marginLeft: '10px' }}
-          >
-            Add FREE!
-          </div>,
-          <div key="3" className="button">
-            Credits: {this.props.auth.credits}
-          </div>,
-          <div
-            key="4"
-            className="button is-danger"
-            onClick={this.props.resetAmount}
-          >
-            Reset
-          </div>,
-          <a key="5" href="/api/logout" className="button">
-            Logout
+        return (
+          <a href="/api/logout" className="button is-primary">
+            <strong>Logout</strong>
           </a>
-        ];
+        );
+    }
+  }
+
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        return (
+          <div className="navbar-item has-dropdown is-hoverable">
+            <Link to="#" className="navbar-link">
+              My credits
+            </Link>
+            <div className="navbar-dropdown">
+              <Payments />
+              <Link to="#" className="navbar-item" onClick={this.props.addFree}>
+                Add 5 free credits!
+              </Link>
+              <div to="#" className="navbar-item">
+                Credits: <strong>{this.props.auth.credits}</strong>
+              </div>
+              <hr className="navbar-divider" />
+              <Link
+                to="#"
+                className="navbar-item has-text-danger"
+                onClick={this.props.resetAmount}
+              >
+                Reset credits
+              </Link>
+            </div>
+          </div>
+        );
     }
   }
 
@@ -94,9 +108,10 @@ class Navbar extends Component {
           </Link>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-start">{this.renderContent()}</div>
           <div className="navbar-end">
             <div className="navbar-item">
-              <div className="buttons">{this.renderContent()}</div>
+              <div className="buttons">{this.renderButton()}</div>
             </div>
           </div>
         </div>
