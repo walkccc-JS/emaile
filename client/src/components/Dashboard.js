@@ -3,19 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
-    <div className="card">
-      <div className="card-content">
-        <p className="title">Dashboard</p>
-        <p className="subtitle">A place to create new surveys...</p>
+    <section className="section">
+      <div className="container" style={{ maxWidth: 1024, textAlign: 'center' }}>
+        <div className="notification is-link">
+          <h1 style={{ fontSize: '3rem' }}>
+            <strong>Dashboard</strong>
+          </h1>
+          <p className="title" />
+          <p className="subtitle">A place to create new surveys...</p>
+          <Link to="/surveys/new">Create a new survey!</Link>
+        </div>
       </div>
-      <footer className="card-footer">
-        <p className="card-footer-item">
-          <span>
-            <Link to="/surveys/new">Create a new survey!</Link>
-          </span>
-        </p>
-      </footer>
-    </div>
+    </section>
   );
 };
 

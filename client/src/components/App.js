@@ -7,9 +7,8 @@ import Navbar from './Navbar';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
+import Thank from './Thank';
 import './App.css';
-
-const Thank = () => <h2>Thank you!</h2>;
 
 class App extends Component {
   componentWillMount() {
@@ -25,7 +24,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
-            <Route path="/api/surveys/thanks" component={Thank} />
+            <Route path="/api/surveys/:surveyID/:choice" component={Thank} />
           </div>
         </BrowserRouter>
       </div>
