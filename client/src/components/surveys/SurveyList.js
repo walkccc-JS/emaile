@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchSurveys } from '../../actions';
+import { fetchSurveys, deleteSurvey } from '../../actions';
 
 class SurveyList extends Component {
   componentDidMount() {
     this.props.fetchSurveys();
+  }
+
+  handleDeleteSurvey(id) {
+    this.props.deleteSurvey(id);
+    this.props.history.push('/surveys');
   }
 
   renderSurveys() {
@@ -35,6 +40,15 @@ class SurveyList extends Component {
               <i className="fas fa-thumbs-down" style={{ marginRight: '1rem' }} />
               {survey.no}
             </Link>
+            <Link
+              to="#"
+              className="card-footer-item has-text-warning"
+              onClick={() => {
+                this.handleDeleteSurvey(survey._id);
+              }}
+            >
+              <i className="fas fa-trash" />
+            </Link>
           </footer>
         </div>
       );
@@ -52,5 +66,5 @@ function mapStateToProps({ surveys }) {
 
 export default connect(
   mapStateToProps,
-  { fetchSurveys }
+  { fetchSurveys, deleteSurvey }
 )(SurveyList);

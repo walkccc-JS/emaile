@@ -16,6 +16,19 @@ module.exports = app => {
     res.send(surveys);
   });
 
+  app.get('/api/surveys/:surveyID', requireLogin, async (req, res) => {
+    const survey = await Survey.findById(req.params.surveyID);
+
+    res.send(survey);
+  });
+
+  app.delete('/api/surveys/:surveyID', requireLogin, async (req, res) => {
+    const id = req.params.surveyID;
+    const survey = await Survey.findByIdAndDelete(id);
+
+    res.send(survey);
+  });
+
   app.post('/api/surveys/webhooks', (req, res) => {
     const p = new Path('/api/surveys/:surveyID/:choice');
 
