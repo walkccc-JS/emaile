@@ -11,12 +11,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
       <div className="field" key={name}>
         <label className="label">{label}</label>
         <div className="control has-icons-left">
-          <input
-            disabled
-            type="text"
-            className="input"
-            placeholder={formValues[name]}
-          />
+          <input disabled type="text" className="input" placeholder={formValues[name]} />
           <span className="icon is-small is-left">
             <i className={icon} />
           </span>
@@ -37,10 +32,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
           </button>
         </div>
         <div className="control">
-          <button
-            className="button is-success"
-            onClick={() => submitSurvey(formValues, history)}
-          >
+          <button className="button is-success" onClick={() => submitSurvey(formValues, history)}>
             <p style={{ marginRight: '5px' }}>Send surveys</p>
             <i className="fas fa-arrow-circle-right" />
           </button>
@@ -50,9 +42,9 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   );
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return { formValues: state.form.surveyForm.values };
-}
+};
 
 export default connect(
   mapStateToProps,

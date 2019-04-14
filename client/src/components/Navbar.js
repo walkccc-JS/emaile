@@ -113,9 +113,9 @@ class Navbar extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
+const mapStateToProps = ({ auth }) => {
   return { auth };
-}
+};
 
 export default connect(
   mapStateToProps,

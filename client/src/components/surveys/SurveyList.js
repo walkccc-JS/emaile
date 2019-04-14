@@ -60,9 +60,9 @@ class SurveyList extends Component {
   }
 }
 
-function mapStateToProps({ surveys }) {
+const mapStateToProps = ({ surveys }) => {
   return { surveys };
-}
+};
 
 export default connect(
   mapStateToProps,
