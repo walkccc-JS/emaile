@@ -20,15 +20,18 @@ class SurveyList extends Component {
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4">{survey.title}</p>
-                <p className="subtitle is-6">{survey.subject}</p>
+                <p className="subtitle has-text-weight-semibold is-6">
+                  {survey.subject}
+                </p>
               </div>
             </div>
 
             <div className="content">
               {survey.body}
               <br />
-              Sent On: {new Date(survey.dateSent).toLocaleDateString()}
+              <div className="is-pulled-right">
+                sent on: {new Date(survey.dateSent).toLocaleDateString()}
+              </div>
             </div>
           </div>
           <footer className="card-footer">
