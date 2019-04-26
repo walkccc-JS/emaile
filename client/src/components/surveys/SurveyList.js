@@ -37,12 +37,15 @@ class SurveyList extends Component {
               {survey.yes}
             </Link>
             <Link to="#" className="card-footer-item has-text-danger">
-              <i className="fas fa-thumbs-down" style={{ marginRight: '1rem' }} />
+              <i
+                className="fas fa-thumbs-down"
+                style={{ marginRight: '1rem' }}
+              />
               {survey.no}
             </Link>
             <Link
               to="#"
-              className="card-footer-item has-text-warning"
+              className="card-footer-item has-text-warning delete-link"
               onClick={() => {
                 this.handleDeleteSurvey(survey._id);
               }}

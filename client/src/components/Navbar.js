@@ -64,7 +64,11 @@ class Navbar extends Component {
                 Credits: <strong>{this.props.auth.credits}</strong>
               </div>
               <hr className="navbar-divider" />
-              <Link to="#" className="navbar-item has-text-danger" onClick={this.props.resetAmount}>
+              <Link
+                to="#"
+                className="navbar-item has-text-danger"
+                onClick={this.props.resetAmount}
+              >
                 Reset credits
               </Link>
             </div>
@@ -77,8 +81,14 @@ class Navbar extends Component {
     return (
       <nav className="navbar">
         <div className="navbar-brand">
-          <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-item">
-            <img src={Emaile} alt="Emaile" width="28" height="28" style={{ marginRight: 5 }} />
+          <Link to="/" className="navbar-item">
+            <img
+              src={Emaile}
+              alt="Emaile"
+              width="28"
+              height="28"
+              style={{ marginRight: 5 }}
+            />
             <span>
               <strong>Emaile</strong>
             </span>
@@ -98,8 +108,8 @@ class Navbar extends Component {
           </Link>
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
-          <Link to="/" className="navbar-item">
-            Home
+          <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-item">
+            Dashboard
           </Link>
           <div className="navbar-start">{this.renderContent()}</div>
           <div className="navbar-end">
